@@ -1,63 +1,63 @@
 {
-  "name": "wovo",
-  "displayName": "wovo",
-  "description": "Speak when typing, clicking and changing the editor.",
-  "version": "0.0.1",
-  "publisher": "jimliuxyz",
-  "engines": {
-    "vscode": "^1.16.0"
-  },
-  "categories": [
-    "Other"
-  ],
-  "main": "./out/src/extension",
-  "icon": "assert/logo.png",
-  "activationEvents": [
-    "*"
-  ],
-  "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "Word Voice configuration",
-      "properties": {
-        "wovo.voice_filename": {
-          "type": "boolean",
-          "default": true,
-          "description": "voice filename when changing editor."
-        },
-        "wovo.voice_editing": {
-          "type": "boolean",
-          "default": true,
-          "description": "voice word when editing."
-        },
-        "wovo.voice_cursor": {
-          "type": "boolean",
-          "default": true,
-          "description": "voice word when moving cursor."
-        },
-        "wovo.voice_selection": {
-          "type": "boolean",
-          "default": true,
-          "description": "voice selected words."
+    "name": "wovo",
+    "displayName": "wovo",
+    "description": "Speak when typing, clicking and changing the editor.",
+    "version": "1.0.0",
+    "publisher": "jimliuxyz",
+    "engines": {
+        "vscode": "^1.16.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "main": "./out/src/extension",
+    "icon": "assert/logo.png",
+    "activationEvents": [
+        "*"
+    ],
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Word Voice configuration",
+            "properties": {
+                "wovo.voice_filename": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "voice filename when changing editor."
+                },
+                "wovo.voice_editing": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "voice word when editing."
+                },
+                "wovo.voice_cursor": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "voice word when moving cursor."
+                },
+                "wovo.voice_selection": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "voice selected words."
+                }
+            }
         }
-      }
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.5.2",
+        "vscode": "^1.1.5",
+        "mocha": "^3.5.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "say": "^0.13.1"
     }
-  },
-  "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "tsc -p ./",
-    "watch": "tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "npm run compile && node ./node_modules/vscode/bin/test"
-  },
-  "devDependencies": {
-    "typescript": "^2.5.2",
-    "vscode": "^1.1.5",
-    "mocha": "^3.5.0",
-    "@types/node": "^7.0.43",
-    "@types/mocha": "^2.2.42"
-  },
-  "dependencies": {
-    "say": "^0.13.1"
-  }
 }
