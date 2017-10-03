@@ -2,6 +2,9 @@ import {window, commands, Disposable, ExtensionContext, StatusBarAlignment, Stat
 import * as vscode from 'vscode';
 import * as say from 'say';
 
+const cfgVoDisable = (): boolean =>
+vscode.workspace.getConfiguration('wovo').get<boolean>('disable_all');
+
 const cfgVoFilename = (): boolean =>
 vscode.workspace.getConfiguration('wovo').get<boolean>('voice_filename');
 
@@ -37,7 +40,9 @@ class WordVoice {
     private _delaycall:NodeJS.Timer;
     
     public onDidChnage() {
-        
+        if (cfgVoDisable())
+            return;
+
         // Create as needed
         if (!this._statusBarItem) {
             this._statusBarItem = window.createStatusBarItem(StatusBarAlignment.Left);
@@ -109,7 +114,7 @@ class WordVoice {
             }
         }
         else {
-            if (cfgVoSelection)
+            if (cfgVoSelection())
                 stext = doc.getText(editor.selection);
         }
         

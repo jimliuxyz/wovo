@@ -2,7 +2,7 @@
     "name": "wovo",
     "displayName": "wovo",
     "description": "Speak when typing, clicking and changing the editor.",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "publisher": "jimliuxyz",
     "engines": {
         "vscode": "^1.16.0"
@@ -20,6 +20,11 @@
             "type": "object",
             "title": "Word Voice configuration",
             "properties": {
+                "wovo.disable_all": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "disable all."
+                },
                 "wovo.voice_filename": {
                     "type": "boolean",
                     "default": true,
